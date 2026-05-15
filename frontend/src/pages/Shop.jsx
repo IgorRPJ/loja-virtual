@@ -29,10 +29,23 @@ function Shop() {
     });
   };
 
+  const checkout = () => {
+  if (cart.length === 0) {
+    alert("Seu carrinho está vazio!");
+    return;
+  }
+
+  alert("Compra realizada com sucesso!"); // Feedback visual
+  
+  // Limpa o estado e o LocalStorage
+  setCart([]);
+  localStorage.removeItem('cart');
+};
+
   return (
     <div className="bg-light min-vh-100 pb-5">
       <nav className="navbar navbar-dark bg-primary mb-4 shadow-sm">
-        <div className="container"><span className="navbar-brand fw-bold"><i class="bi bi-cart"></i> Minha Loja</span></div>
+        <div className="container"><span className="navbar-brand fw-bold"><i class="bi bi-cart"></i>Loja Virtual</span></div>
       </nav>
 
       <div className="container">
@@ -56,6 +69,7 @@ function Shop() {
                   prev => prev.map(
                     item => item.id === id ? { ...item, quantity: Math.max(1, q) } : item))
                     } onRemove={(id) => setCart(prev => prev.filter(item => item.id !== id))}
+                    onCheckout={checkout}
               />
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Cart({ items, onUpdateQuantity, onRemove }) {
+function Cart({ items, onUpdateQuantity, onRemove, onCheckout }) {
   const total = items.reduce((acc, item) => acc + (parseFloat(item.price) * item.quantity), 0);
 
   return (
@@ -42,7 +42,7 @@ function Cart({ items, onUpdateQuantity, onRemove }) {
                 <span className="small fw-bold">Total:</span>
                 <span className="h6 mb-0 fw-bold text-primary">R$ {total.toFixed(2)}</span>
               </div>
-              <button className="btn btn-success btn-sm w-100 fw-bold shadow-sm">Finalizar Compra</button>
+              <button onClick={onCheckout} className="btn btn-success btn-sm w-100 fw-bold shadow-sm">Finalizar Compra</button>
             </div> {}
           </>
         )}

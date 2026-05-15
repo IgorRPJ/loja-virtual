@@ -1,0 +1,24 @@
+.product-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+.cart-scroll-area {
+  max-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+}
+
+.cart-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.cart-scroll-area::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
